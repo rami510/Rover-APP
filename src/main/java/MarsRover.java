@@ -63,6 +63,25 @@ public class MarsRover {
         }
     }
 
+    public void executeInstructions(String instructions, int maxX, int maxY) {
+        for (char instruction : instructions.toCharArray()) {
+            switch (instruction) {
+                case RoverConstants.LEFT:
+                    turnLeft();
+                    break;
+                case RoverConstants.RIGHT:
+                    turnRight();
+                    break;
+                case RoverConstants.MOVE:
+                    move(maxX, maxY);
+                    break;
+                default:
+                    RoverExceptionHandler.handleInvalidInstruction(instruction);
+            }
+        }
+    }
+
+
     @Override
     public String toString() {
         return x + " " + y + " " + direction;

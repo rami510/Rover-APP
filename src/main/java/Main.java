@@ -28,7 +28,10 @@ public class Main {
                 // Read rover instructions
                 String instructions = br.readLine().trim();
 
-                System.out.println("Rover at (" + x + ", " + y + ") direction: " + defaultDirection + ", instructions: " + instructions);
+                // Create a new rover
+                MarsRover rover = new MarsRover(x, y, defaultDirection);
+
+                System.out.println(rover);
             }
         } catch (IOException e) {
             System.err.println("File reading error: " + e.getMessage());

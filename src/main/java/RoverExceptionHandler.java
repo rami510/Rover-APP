@@ -1,10 +1,20 @@
-public class RoverExceptionHandler {
-
-    public static void handleInvalidInstruction(char instruction) {
-        throw new IllegalArgumentException("Invalid instruction: " + instruction);
+// exception for invalid direction
+class InvalidDirectionException extends RuntimeException {
+    public InvalidDirectionException(char direction) {
+        super("Invalid direction: " + direction);
     }
+}
 
-    public static void handleMissingFilePath() {
-        throw new IllegalArgumentException("Please provide the file path as an argument.");
+// exception for invalid instruction
+class InvalidInstructionException extends RuntimeException {
+    public InvalidInstructionException(char instruction) {
+        super("Invalid instruction: " + instruction);
+    }
+}
+
+// exception for out-of-bounds movement
+class OutOfBoundsException extends RuntimeException {
+    public OutOfBoundsException(char direction) {
+        super("The rover attempted to move out of bounds in the " + direction + " direction.");
     }
 }

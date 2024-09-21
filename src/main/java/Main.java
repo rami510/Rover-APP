@@ -25,12 +25,16 @@ public class Main {
                 int y = Integer.parseInt(position[1]);
                 char defaultDirection = position[2].charAt(0);
 
-                // Read rover instructions
-                String instructions = br.readLine().trim();
-
                 // Create a new rover
                 MarsRover rover = new MarsRover(x, y, defaultDirection);
 
+                // Read instructions
+                String instructions = br.readLine().trim();
+
+                // Execute instructions
+                rover.executeInstructions(instructions, maxX, maxY);
+
+                // display final position
                 System.out.println(rover);
             }
         } catch (IOException e) {

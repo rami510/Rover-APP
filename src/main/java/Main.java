@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            RoverExceptionHandler.handleMissingFilePath();
+            throw new IllegalArgumentException("Please provide the file path as an argument.");
         }
 
         String filePath = args[0];
@@ -19,27 +19,31 @@ public class Main {
 
             String line;
             while ((line = br.readLine()) != null) {
-                // Read initial position and default direction
-                String[] position = line.trim().split(" ");
-                int x = Integer.parseInt(position[0]);
-                int y = Integer.parseInt(position[1]);
-                char defaultDirection = position[2].charAt(0);
+                try {
+                    // Read initial position and direction
+                    String[] position = line.trim().split(" ");
+                    int x = Integer.parseInt(position[0]);
+                    int y = Integer.parseInt(position[1]);
+                    char defaultDirection = position[2].charAt(0);
 
-                // Create a new rover
-                MarsRover rover = new MarsRover(x, y, defaultDirection);
+                    // Create a new rover
+                    MarsRover rover = new MarsRover(x, y, defaultDirection);
 
-                // Read instructions
-                String instructions = br.readLine().trim();
+                    // Read instructions
+                    String instructions = br.readLine().trim();
 
-                // Execute instructions
-                rover.executeInstructions(instructions, maxX, maxY);
+                    // Execute instructions
+                    rover.executeInstructions(instructions, maxX, maxY);
 
-                // display final position
-                System.out.println(rover);
+                    // Display final position
+                    System.out.println(rover);
+
+                } catch (InvalidDirectionException | InvalidInstructionException | OutOfBoundsException e) {
+                    System.err.println("Error: " + e.getMessage());
+                }
             }
         } catch (IOException e) {
             System.err.println("File reading error: " + e.getMessage());
         }
     }
 }
-

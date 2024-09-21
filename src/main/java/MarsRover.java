@@ -12,17 +12,17 @@ public class MarsRover {
     // Turn to the left
     public void turnLeft() {
         switch (this.direction) {
-            case 'N':
-                this.direction = 'W';
+            case RoverConstants.NORTH:
+                this.direction = RoverConstants.WEST;
                 break;
-            case 'E':
-                this.direction = 'N';
+            case RoverConstants.EAST:
+                this.direction = RoverConstants.NORTH;
                 break;
-            case 'S':
-                this.direction = 'E';
+            case RoverConstants.SOUTH:
+                this.direction = RoverConstants.EAST;
                 break;
-            case 'W':
-                this.direction = 'S';
+            case RoverConstants.WEST:
+                this.direction = RoverConstants.SOUTH;
                 break;
         }
     }
@@ -30,17 +30,17 @@ public class MarsRover {
     // Turn to the right
     public void turnRight() {
         switch (this.direction) {
-            case 'N':
-                this.direction = 'E';
+            case RoverConstants.NORTH:
+                this.direction = RoverConstants.EAST;
                 break;
-            case 'E':
-                this.direction = 'S';
+            case RoverConstants.EAST:
+                this.direction = RoverConstants.SOUTH;
                 break;
-            case 'S':
-                this.direction = 'W';
+            case RoverConstants.SOUTH:
+                this.direction = RoverConstants.WEST;
                 break;
-            case 'W':
-                this.direction = 'N';
+            case RoverConstants.WEST:
+                this.direction = RoverConstants.NORTH;
                 break;
         }
     }
@@ -48,16 +48,16 @@ public class MarsRover {
     // Move forward the rover
     public void move(int maxX, int maxY) {
         switch (this.direction) {
-            case 'N':
+            case RoverConstants.NORTH:
                 if (y < maxY) y++;
                 break;
-            case 'E':
+            case RoverConstants.EAST:
                 if (x < maxX) x++;
                 break;
-            case 'S':
+            case RoverConstants.SOUTH:
                 if (y > 0) y--;
                 break;
-            case 'W':
+            case RoverConstants.WEST:
                 if (x > 0) x--;
                 break;
         }

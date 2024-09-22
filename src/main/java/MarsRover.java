@@ -3,7 +3,7 @@ public class MarsRover {
     private char direction;
 
     public MarsRover(int x, int y, char direction) {
-        if (!isValidDirection(direction)) {
+        if (!isValidDefaultDirection(direction)) {
             throw new InvalidDirectionException(direction);
         }
         this.x = x;
@@ -113,7 +113,7 @@ public class MarsRover {
     }
 
     // Verify direction
-    private boolean isValidDirection(char direction) {
+    private boolean isValidDefaultDirection(char direction) {
         return direction == RoverConstants.NORTH || direction == RoverConstants.EAST ||
                 direction == RoverConstants.SOUTH || direction == RoverConstants.WEST;
     }

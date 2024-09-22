@@ -46,3 +46,26 @@ The program will be runned with this command line:
 
  	java -jar rover.jar input.txt
 
+# Installation :
+### Step 1: Clone the project
+ 
+git clone --branch master https://github.com/rami510/Rover-APP.git
+
+
+### Step 2: Compile + Test + Package the project
+cd Rover-APP
+
+mvn clean package
+
+This will generate the Rover.jar file in the target directory.
+
+### Step 3: Run the program
+
+After compilation, you can run the JAR file by providing an input file path:
+
+cd target
+
+java -jar Rover.jar input.txt
+
+
+

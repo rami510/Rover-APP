@@ -11,6 +11,19 @@ public class MarsRover {
         this.direction = direction;
     }
 
+    // Getters
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public char getDirection() {
+        return direction;
+    }
+
     // Turn left
     public void turnLeft() {
         switch (this.direction) {
